@@ -29,8 +29,18 @@ public class Player {
 	private String phone;
 	
 	public Player() {
-		super();
+			
 	}
+
+	
+	public Player(int id, String name, int number, String address, String phone) {
+		this.id = id;
+		this.name = name;
+		this.number = number;
+		this.address = address;
+		this.phone = phone;
+	}
+
 
 	public int getId() {
 		return id;

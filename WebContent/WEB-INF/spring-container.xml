@@ -20,7 +20,7 @@
 		<mvc:annotation-driven></mvc:annotation-driven>
 		
 		<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-			<property name="prefix" value="/WEB-INF/view"></property>
+			<property name="prefix" value="/WEB-INF/view/"></property>
 			<property name="suffix" value=".jsp"></property>
 		</bean>
 		
@@ -29,41 +29,45 @@
 		
 		<!-- Define Database / connection pool -->
 		
-		<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooLedDataSource" 
+		<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" 
 		  destroy-method="close">
 		
 			<property name="driverClass" value="com.mysql.cj.jdbc.Driver"></property>
-			<property name="url" value="jdbc:mysql://localhost:3306/player"></property>
-			<property name="username" value="user"></property>
+			<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/player"></property>
+			<property name="user" value="root"></property>
 			<property name="password" value=""></property>
 		
 			<property name="initialPoolSize" value="5"></property>
 			<property name="minPoolSize" value="5"></property>
 			<property name="maxPoolSize" value="20"></property>
-			<property name="MaxIdleTime" value="30000"></property>
+			<property name="maxIdleTime" value="30000" />
+			
 		
 		</bean>
 	
-		<bean id="sessionFactory" class="com.springframework.orm.hibernate5.LocalSessionFactoryBean">
+	
+		<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 			 
-			 <property name="dataSource" value="myDataSource"></property>
-			 <property name="packagesToScan" value=""></property>
+			 <property name="dataSource" ref="myDataSource"></property>
+			 <property name="packagesToScan" value="com.spring.model"></property>
 			 <property name="hibernateProperties">
 			 	<props>
-			 		<prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>
+			 		<prop key="hibernate.dialect">org.hibernate.dialect.MariaDB103Dialect</prop>
 			 		<prop key="hibernate.show_sql">true</prop>
+			 		<prop key="hibernate.hbm2ddl.auto">update</prop>
 			 	</props>
 			 </property>
 			 
 			 
 		</bean> 
 	
-		<bean id="myTransactionManager" class="com.springFramework.orm.hibernate5.hibernateTransactManager">
+		<bean id="myTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 			<property name="sessionFactory" ref="sessionFactory"></property>
 		</bean>		
 		
 		<tx:annotation-driven transaction-manager="myTransactionManager"></tx:annotation-driven>
-
+		
+		
 
 
 
