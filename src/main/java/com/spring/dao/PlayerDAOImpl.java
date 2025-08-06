@@ -7,7 +7,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.model.Player;
 
@@ -43,6 +42,16 @@ public class PlayerDAOImpl implements PlayerDAO{
 	public Player getPlayer(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		return session.get(Player.class, id);
+	}
+
+	@Override
+	public void removePlayer(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		Query q = session.createQuery("delete from Player where id =:id ");
+		q.setParameter("id", id);
+		q.executeUpdate();
+		
+		
 	}
 	
 	

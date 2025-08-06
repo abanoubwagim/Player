@@ -65,6 +65,13 @@ public class PlayerController {
 		return "addPlayer";
 	}
 	
+	@GetMapping("/removeplayer")
+	//http://localhost:8081/Player/fifa/removeplayer
+	public String removePlayer(@RequestParam("playerId") int id) {
+		playerService.deletePlayer(id);
+		return "redirect:/fifa/players";
+	}
+	
 	
 
 }
