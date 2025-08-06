@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,16 +23,23 @@
   </thead>
   <tbody>
   
-    <tr>
-      <td>Otto</td>
-      <td>Otto</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td><button type="button" class="btn btn-primary">Primary</button>
-	      <button type="button" class="btn btn-danger">Danger</button>
-	  </td>
-    </tr>
+    				     <!-- from model -->
+      <c:forEach var="player" items="${players}">
+      <tr>
+	      	<td>${player.id}</td>
+	      	<td>${player.name}</td>
+	      	<td>${player.number}</td>
+	      	<td>${player.address}</td>
+	      	<td>${player.phone}</td>
+	      	<td><button type="button" class="btn btn-primary">Primary</button>
+		      <button type="button" class="btn btn-danger">Danger</button>
+		  </td>
+	   </tr>
+      </c:forEach>
+      
+      
+      
+    
     
   
   </tbody>
