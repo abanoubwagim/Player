@@ -27,7 +27,7 @@ public class PlayerController {
 	}
 
 
-	@GetMapping("/players")
+	@GetMapping("/players") // retrieve data
 	//http://localhost:8081/Player/fifa/players
 	public String players(Model model){
 		
@@ -37,5 +37,11 @@ public class PlayerController {
 		return "fifa-players";
 	}
 	
+	
+	@GetMapping("/add")
+	//http://localhost:8081/Player/fifa/add
+	public String savePage() {
+		return "addPlayer";
+	}
 
 }

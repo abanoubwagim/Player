@@ -21,12 +21,20 @@ public class PlayerServiceImpl implements PlayerService{
 	}
 	
 
-
-
 	@Override
 	@Transactional  // in hibernate
 	public List<Player> allPlayers() {
 		return playerDao.getPlayers();
+	}
+
+
+
+
+	@Override
+	@Transactional  // begin and commit session
+	public void savePlayer(Player player) {
+		playerDao.addPlayers(player);
+		
 	}
 
 }
