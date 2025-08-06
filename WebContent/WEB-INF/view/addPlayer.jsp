@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="fo" uri="http://www.springframework.org/tags/form" %>   
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,38 +12,41 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mystyle.css">
 </head>
 <body>
-
-	<form>
+	
+	<fo:form action="saveplayer" modelAttribute="player">
 	  <div class="form-row">
+	  
+	  
+	    
 	    <div class="form-group col-md-6">
 	      <label for="inputEmail4">Name</label>
-	      <input type="text" class="form-control" placeholder="Name">
+	      <fo:input path="name" type="text" class="form-control" placeholder="Name"/>
 	    </div>
 	    
 	    
 	    <div class="form-group col-md-6">
 	      <label for="inputPassword4">Number</label>
-	      <input type="number" class="form-control" placeholder="Number">
+	      <fo:input path="number" type="number" class="form-control" placeholder="Number"/>
 	    </div>
 	  </div>
 	  
 	  
 	  <div class="form-group">
 	    <label for="inputAddress">Address</label>
-	    <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+	    <fo:input path="address" type="text" class="form-control" id="inputAddress" placeholder="Address"/>
 	  </div>
 	  
 	   <div class="form-group">
 	    <label for="inputAddress">Phone</label>
-	    <input type="text" class="form-control" id="inputAddress" placeholder="Phone Number">
+	    <fo:input path="phone" type="text" class="form-control" id="inputAddress" placeholder="Phone Number"/>
 	  </div>
 	 
 	  
-	  <button type="submit" class="btn btn-primary">Add</button>
+	  <button type="submit" class="btn btn-primary">Done</button>
 
 	
 	
-	</form>
+	</fo:form>
 
 </body>
 </html>

@@ -26,7 +26,7 @@ public class PlayerDAOImpl implements PlayerDAO{
 	public List<Player> getPlayers() {
 		Session session = sessionFactory.getCurrentSession();
 													// model(class) not DB
-		Query<Player> query = session.createQuery("From Player",Player.class); // select  *
+		Query<Player> query = session.createQuery("From Player ",Player.class); // select  *
 		
 		return query.getResultList();
 	}
@@ -37,10 +37,12 @@ public class PlayerDAOImpl implements PlayerDAO{
 		Session session = sessionFactory.getCurrentSession();
 		
 		session.saveOrUpdate(player); // save and update at the same time
-		
-		
-		
-		
+	}
+
+	@Override
+	public Player getPlayer(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		return session.get(Player.class, id);
 	}
 	
 	
