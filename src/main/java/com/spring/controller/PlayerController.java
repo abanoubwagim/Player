@@ -28,7 +28,6 @@ public class PlayerController {
 
 
 	@GetMapping("/players")
-	
 	//http://localhost:8081/Player/fifa/players
 	public String players(Model model){
 		
@@ -37,5 +36,6 @@ public class PlayerController {
 		model.addAttribute("players",players);
 		return "fifa-players";
 	}
+	
 
 }
