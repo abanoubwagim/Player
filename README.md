@@ -90,7 +90,15 @@ WebContent/
 
 ## 📸 Video
 
-[Watch the Demo](https://github.com/user-attachments/assets/2f7f059e-5c54-4e96-a638-40f97020aeb7)
+[Watch the Demo](https://github.com/user-attachments/assets/a606046b-8a3c-4c02-a9e1-4e35a69cf168)
+
+
+
+
+
+
+
+
 
 ---
 
