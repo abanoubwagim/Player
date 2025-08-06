@@ -34,7 +34,7 @@ public class PlayerController {
 	public String players(Model model){
 		
 		List<Player> players =  playerService.allPlayers();
-						//  attrubiute   list
+						//  attrubute   list
 		model.addAttribute("players",players);
 		return "fifa-players";
 	}

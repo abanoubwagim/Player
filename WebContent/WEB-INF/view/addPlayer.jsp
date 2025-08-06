@@ -17,6 +17,7 @@
 	  <div class="form-row">
 	  
 	  
+	    <input type="hidden" name="id" value="${player.id}" />
 	    
 	    <div class="form-group col-md-6">
 	      <label for="inputEmail4">Name</label>
